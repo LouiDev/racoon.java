@@ -1,10 +1,10 @@
 package de.rdj.lib;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 import dev.mccue.json.Json;
-import dev.mccue.json.JsonArray;
 import dev.mccue.json.JsonDecoder;
 import dev.mccue.json.JsonObject;
 
@@ -16,10 +16,10 @@ import dev.mccue.json.JsonObject;
 public class DataManager {
 	
 	private JsonObject obj;
-	private JsonArray images;
-	private JsonArray babyImages;
-	private JsonArray factsEn;
-	private JsonArray factsDe;
+	private List<String> images;
+	private List<String> babyImages;
+	private List<String> factsEn;
+	private List<String> factsDe;
 	
 	/**
 	 * Creates a new DataManager object. This allows access to every useful method this library has to offer.
@@ -28,10 +28,10 @@ public class DataManager {
 	public DataManager() throws IOException {
 	    String content = new String(getClass().getClassLoader().getResourceAsStream("data.json").readAllBytes());
 	    obj = (JsonObject) Json.readString(content);
-	    images = (JsonArray) obj.get("images");
-	    babyImages = (JsonArray) obj.get("babyImages");
-	    factsEn = (JsonArray) obj.get("factsEn");
-	    factsDe = (JsonArray) obj.get("factsDe");
+	    images = JsonDecoder.field(obj, "images", JsonDecoder.array(JsonDecoder::string));
+	    babyImages = JsonDecoder.field(obj, "babyImages", JsonDecoder.array(JsonDecoder::string));
+	    factsEn = JsonDecoder.field(obj, "factsEn", JsonDecoder.array(JsonDecoder::string));
+	    factsDe = JsonDecoder.field(obj, "factsDe", JsonDecoder.array(JsonDecoder::string));
 	}
 	
 	/**
@@ -39,13 +39,7 @@ public class DataManager {
 	 * @return RacoonImageList
 	 */
 	public RacoonImageList getAllNormalImages() {
-		ArrayList<String> result = new ArrayList<String>();
-		
-		for(int i = 0; i != images.size(); i++) {
-			result.add(JsonDecoder.string(images.get(i)));
-		}
-		
-		return new RacoonImageList(result);
+		return new RacoonImageList(images);
 	}
 	
 	/**
@@ -53,13 +47,7 @@ public class DataManager {
 	 * @return RacoonImageList
 	 */
 	public RacoonImageList getAllBabyImages() {
-		ArrayList<String> result = new ArrayList<String>();
-		
-		for(int i = 0; i != babyImages.size(); i++) {
-			result.add(JsonDecoder.string(babyImages.get(i)));
-		}
-		
-		return new RacoonImageList(result);
+		return new RacoonImageList(babyImages);
 	}
 	
 	/**
@@ -67,7 +55,7 @@ public class DataManager {
 	 * @return RacoonImageList
 	 */
 	public RacoonImageList getAllImages() {
-		ArrayList<String> result = new ArrayList<String>();
+		List<String> result = new ArrayList<String>();
 		result.addAll(getAllBabyImages().asStringList());
 		result.addAll(getAllNormalImages().asStringList());
 		return new RacoonImageList(result);
@@ -79,15 +67,18 @@ public class DataManager {
 	 * @return RacoonFactList
 	 */
 	public RacoonFactList getAllFacts(Language language) {
-		ArrayList<String> result = new ArrayList<String>();
+		List<String> result = new ArrayList<String>();
 		
-		if(language.equals(Language.GERMAN)) {
-			for(int i = 0; i != factsDe.size(); i++) {
-				result.add(JsonDecoder.string(factsDe.get(i)));
+		switch (language) {
+			case ENGLISH: {
+				for(int i = 0; i != factsEn.size(); i++) {
+					result.add(factsEn.get(i));
+				}
 			}
-		} else if(language.equals(Language.ENGLISH)) {
-			for(int i = 0; i != factsEn.size(); i++) {
-				result.add(JsonDecoder.string(factsEn.get(i)));
+			case GERMAN: {
+				for(int i = 0; i != factsDe.size(); i++) {
+					result.add(factsDe.get(i));
+				}
 			}
 		}
 		return new RacoonFactList(result);
@@ -98,7 +89,7 @@ public class DataManager {
 	 * @return RacoonImage
 	 */
 	public RacoonImage getRandomImage() {
-		ArrayList<String> images = getAllImages().asStringList();
+		List<String> images = getAllImages().asStringList();
 		int rnd = ThreadLocalRandom.current().nextInt(0, images.size());
 		return new RacoonImage(images.get(rnd));
 	}
@@ -108,7 +99,7 @@ public class DataManager {
 	 * @return RacoonImage
 	 */
 	public RacoonImage getRandomNormalImage() {
-		ArrayList<String> images = getAllNormalImages().asStringList();
+		List<String> images = getAllNormalImages().asStringList();
 		int rnd = ThreadLocalRandom.current().nextInt(0, images.size());
 		return new RacoonImage(images.get(rnd));
 	}
@@ -118,7 +109,7 @@ public class DataManager {
 	 * @return RacoonImage
 	 */
 	public RacoonImage getRandomBabyImage() {
-		ArrayList<String> images = getAllBabyImages().asStringList();
+		List<String> images = getAllBabyImages().asStringList();
 		int rnd = ThreadLocalRandom.current().nextInt(0, images.size());
 		return new RacoonImage(images.get(rnd));
 	}
@@ -129,13 +120,18 @@ public class DataManager {
 	 * @return RacoonFact
 	 */
 	public RacoonFact getRandomFact(Language language) {
-		if(language.equals(Language.GERMAN)) {
-			int rnd = ThreadLocalRandom.current().nextInt(0, factsDe.size());
-			return new RacoonFact(JsonDecoder.string(factsDe.get(rnd)));
-		} else if(language.equals(Language.ENGLISH)) {
-			int rnd = ThreadLocalRandom.current().nextInt(0, factsEn.size());
-			return new RacoonFact(JsonDecoder.string(factsEn.get(rnd)));
+		switch (language) {
+			case ENGLISH: {
+				int rnd = ThreadLocalRandom.current().nextInt(0, factsEn.size());
+				return new RacoonFact(factsEn.get(rnd));
+			}
+			case GERMAN: {
+				int rnd = ThreadLocalRandom.current().nextInt(0, factsDe.size());
+				return new RacoonFact(factsDe.get(rnd));
+			}
+
 		}
+
 		return null;
 	}
 	

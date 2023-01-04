@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.louidev</groupId>
   <artifactId>racoon.java</artifactId>
-  <version>0.0.3-SNAPSHOT</version>
+  <version>0.0.5-SNAPSHOT</version>
   <distributionManagement>
    <repository>
      <id>github</id>
@@ -14,7 +14,7 @@
     <sourceDirectory>src</sourceDirectory>
     <resources>
     	<resource>
-    		<directory>src/de/rdj/lib</directory>
+    		<directory>src</directory>
     		<includes>
     			<include>data.json</include>
     		</includes>

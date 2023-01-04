@@ -7,6 +7,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.imageio.ImageIO;
 
@@ -16,9 +17,9 @@ import javax.imageio.ImageIO;
  *
  */
 public class RacoonImageList {
-	private ArrayList<String> images;
+	private List<String> images;
 	
-	public RacoonImageList(ArrayList<String> images) {
+	public RacoonImageList(List<String> images) {
 		this.images = images;
 	}
 	
@@ -26,7 +27,7 @@ public class RacoonImageList {
 	 * Returns the containing image list as a String list.
 	 * @return String ArrayList
 	 */
-	public ArrayList<String> asStringList() {
+	public List<String> asStringList() {
 		return images;
 	}
 	
@@ -35,8 +36,8 @@ public class RacoonImageList {
 	 * @return URL ArrayList
 	 * @throws MalformedURLException
 	 */
-	public ArrayList<URL> asURLList() throws MalformedURLException {
-		ArrayList<URL> result = new ArrayList<URL>();
+	public List<URL> asURLList() throws MalformedURLException {
+		List<URL> result = new ArrayList<URL>();
 		
 		for(String s : images) {
 			result.add(new URL(s));
@@ -51,8 +52,8 @@ public class RacoonImageList {
 	 * @throws MalformedURLException
 	 * @throws IOException
 	 */
-	public ArrayList<Image> asImageList() throws MalformedURLException, IOException {
-		ArrayList<Image> result = new ArrayList<Image>();
+	public List<Image> asImageList() throws MalformedURLException, IOException {
+		List<Image> result = new ArrayList<Image>();
 		
 		for(String s : images) {
 			result.add(ImageIO.read(new URL(s)));
@@ -66,8 +67,8 @@ public class RacoonImageList {
 	 * @return URI ArrayList
 	 * @throws URISyntaxException
 	 */
-	public ArrayList<URI> asURIList() throws URISyntaxException {
-		ArrayList<URI> result = new ArrayList<URI>();
+	public List<URI> asURIList() throws URISyntaxException {
+		List<URI> result = new ArrayList<URI>();
 		
 		for(String s : images) {
 			result.add(new URI(s));

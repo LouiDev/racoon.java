@@ -1,6 +1,6 @@
 package de.rdj.lib;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Object containing a list of racoon facts.
@@ -8,9 +8,9 @@ import java.util.ArrayList;
  *
  */
 public class RacoonFactList {
-	private ArrayList<String> facts;
+	private List<String> facts;
 	
-	public RacoonFactList(ArrayList<String> facts) {
+	public RacoonFactList(List<String> facts) {
 		this.facts = facts;
 	}
 	
@@ -18,7 +18,7 @@ public class RacoonFactList {
 	 * Returns the containing facts as a String list.
 	 * @return ArrayList
 	 */
-	public ArrayList<String> asStringList() {
+	public List<String> asStringList() {
 		return facts;
 	}
 }
