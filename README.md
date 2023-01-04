@@ -18,7 +18,7 @@ Facts are currently available in theese languages:
 Add this dependency to your pom.xml:
 ```xml
 <dependency>
-  <groupId>org.racoonLib.Racoon.java</groupId>
+  <groupId>org.louidev</groupId>
   <artifactId>racoon.java</artifactId>
   <version>0.0.1-SNAPSHOT</version>
 </dependency>
