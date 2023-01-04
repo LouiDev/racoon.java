@@ -1,6 +1,6 @@
 # racoon.java
 
-<a href="https://github.com/LouiDev/racoon.java/packages/1762981">![Latest Version](https://img.shields.io/badge/Latest%20Release-0.0.4--SNAPSHOT-yellow)</a>
+<a href="https://github.com/LouiDev/racoon.java/packages/1762981">![Latest Version](https://img.shields.io/badge/Latest%20Release-0.0.5--SNAPSHOT-yellow)</a>
 <a href="https://www.guilded.gg/i/kamW6l4k">![Guilded](https://img.shields.io/badge/Guilded%20Server-Join-yellow)</a>
 ![Guilded](https://img.shields.io/badge/Java-17-yellow)
 
@@ -20,7 +20,7 @@ Add this dependency to your pom.xml:
 <dependency>
   <groupId>org.louidev</groupId>
   <artifactId>racoon.java</artifactId>
-  <version>0.0.4-SNAPSHOT</version>
+  <version>0.0.5-SNAPSHOT</version>
 </dependency>
 ```
 
@@ -51,10 +51,10 @@ RacoonImage#asImage()  -> Returns the containing image as an Image
 RacoonImage#asURI()    -> Returns the containing image as an URI
 RacoonImage#asURL()    -> Returns the containing image as an URL
 ```
-Same goes with ``RacoonImageList`` but instead of a single result, the methods return an ``ArrayList`` containing the images as a ``String`` / ``Image`` / ``URI`` / ``URL``.
+Same goes with ``RacoonImageList`` but instead of a single result, the methods return a ``List`` containing the images as a ``String`` / ``Image`` / ``URI`` / ``URL``.
 
 # RacoonFact
 ```
 RacoonFact#asString()  -> Returns the containing fact as a String
 ```
-Same goes with ``RacoonFactList`` but instead of a single result, the methods return an ``ArrayList`` containing the facts as a ``String``.
+Same goes with ``RacoonFactList`` but instead of a single result, the methods return a ``List`` containing the facts as a ``String``.
