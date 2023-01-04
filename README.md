@@ -5,7 +5,7 @@
 ![Guilded](https://img.shields.io/badge/Java-17-yellow)
 
 # Introduction
-Racoon.java is a libraray which prvides
+Racoon.java is a libraray which provides
 - 50 racoon images
 - 20 racoon baby images
 - 20 racoon facts
