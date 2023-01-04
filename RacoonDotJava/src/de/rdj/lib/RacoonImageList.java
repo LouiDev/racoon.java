@@ -25,7 +25,7 @@ public class RacoonImageList {
 	
 	/**
 	 * Returns the containing image list as a String list.
-	 * @return String ArrayList
+	 * @return String List
 	 */
 	public List<String> asStringList() {
 		return images;
@@ -33,7 +33,7 @@ public class RacoonImageList {
 	
 	/**
 	 * Returns the containing image list as an URL list.
-	 * @return URL ArrayList
+	 * @return URL List
 	 * @throws MalformedURLException
 	 */
 	public List<URL> asURLList() throws MalformedURLException {
@@ -48,7 +48,7 @@ public class RacoonImageList {
 	
 	/**
 	 * Returns the containing image list as an Image list.
-	 * @return Image ArrayList
+	 * @return Image List
 	 * @throws MalformedURLException
 	 * @throws IOException
 	 */
@@ -64,7 +64,7 @@ public class RacoonImageList {
 	
 	/**
 	 * Returns the containing image list as an URI list.
-	 * @return URI ArrayList
+	 * @return URI List
 	 * @throws URISyntaxException
 	 */
 	public List<URI> asURIList() throws URISyntaxException {

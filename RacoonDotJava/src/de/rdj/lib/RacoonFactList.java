@@ -16,7 +16,7 @@ public class RacoonFactList {
 	
 	/**
 	 * Returns the containing facts as a String list.
-	 * @return ArrayList
+	 * @return List
 	 */
 	public List<String> asStringList() {
 		return facts;
