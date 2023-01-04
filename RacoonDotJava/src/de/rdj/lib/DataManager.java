@@ -26,7 +26,7 @@ public class DataManager {
 	 * @throws IOException
 	 */
 	public DataManager() throws IOException {
-	    String content = new String(DataManager.class.getResourceAsStream("data.json").readAllBytes());
+	    String content = new String(getClass().getClassLoader().getResourceAsStream("data.json").readAllBytes());
 	    obj = (JsonObject) Json.readString(content);
 	    images = (JsonArray) obj.get("images");
 	    babyImages = (JsonArray) obj.get("babyImages");
