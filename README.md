@@ -1,6 +1,6 @@
 # racoon.java
 
-<a href="https://github.com/LouiDev/racoon.java/packages/1762840">![Latest Version](https://img.shields.io/badge/Latest%20Release-0.0.1--SNAPSHOT-yellow)</a>
+<a href="https://github.com/LouiDev/racoon.java/packages/1762981">![Latest Version](https://img.shields.io/badge/Latest%20Release-0.0.1--SNAPSHOT-yellow)</a>
 <a href="https://www.guilded.gg/i/kamW6l4k">![Guilded](https://img.shields.io/badge/Guilded%20Server-Join-yellow)</a>
 ![Guilded](https://img.shields.io/badge/Java-17-yellow)
 
@@ -18,7 +18,7 @@ Facts are currently available in theese languages:
 Add this dependency to your pom.xml:
 ```xml
 <dependency>
-  <groupId>org.racoonLib.Racoon.java</groupId>
+  <groupId>org.louidev</groupId>
   <artifactId>racoon.java</artifactId>
   <version>0.0.1-SNAPSHOT</version>
 </dependency>
