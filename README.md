@@ -20,7 +20,7 @@ Add this dependency to your pom.xml:
 <dependency>
   <groupId>org.louidev</groupId>
   <artifactId>racoon.java</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0.0.4-SNAPSHOT</version>
 </dependency>
 ```
 
