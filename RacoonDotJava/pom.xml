@@ -30,8 +30,8 @@
 <distributionManagement>
    <repository>
      <id>github</id>
-     <name>GitHub louidev Apache Maven Packages</name>
-     <url>https://maven.pkg.github.com/louidev/racoon.java</url>
+     <name>GitHub LouiDev Apache Maven Packages</name>
+     <url>https://maven.pkg.github.com/LouiDev/racoon.java</url>
    </repository>
 </distributionManagement>
 </project>
