@@ -25,13 +25,18 @@ public class DataManager {
 	 * Creates a new DataManager object. This allows access to every useful method this library has to offer.
 	 * @throws IOException
 	 */
-	public DataManager() throws IOException {
-	    String content = new String(getClass().getClassLoader().getResourceAsStream("data.json").readAllBytes());
-	    obj = (JsonObject) Json.readString(content);
-	    images = JsonDecoder.field(obj, "images", JsonDecoder.array(JsonDecoder::string));
-	    babyImages = JsonDecoder.field(obj, "babyImages", JsonDecoder.array(JsonDecoder::string));
-	    factsEn = JsonDecoder.field(obj, "factsEn", JsonDecoder.array(JsonDecoder::string));
-	    factsDe = JsonDecoder.field(obj, "factsDe", JsonDecoder.array(JsonDecoder::string));
+	public DataManager() {
+	    String content;
+		try {
+			content = new String(getClass().getClassLoader().getResourceAsStream("data.json").readAllBytes());
+		    obj = (JsonObject) Json.readString(content);
+		    images = JsonDecoder.field(obj, "images", JsonDecoder.array(JsonDecoder::string));
+		    babyImages = JsonDecoder.field(obj, "babyImages", JsonDecoder.array(JsonDecoder::string));
+		    factsEn = JsonDecoder.field(obj, "factsEn", JsonDecoder.array(JsonDecoder::string));
+		    factsDe = JsonDecoder.field(obj, "factsDe", JsonDecoder.array(JsonDecoder::string));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	/**

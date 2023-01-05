@@ -34,8 +34,13 @@ public class RacoonImage {
 	 * @return URL
 	 * @throws MalformedURLException
 	 */
-	public URL asURL() throws MalformedURLException {
-		return new URL(image);
+	public URL asURL() {
+		try {
+			return new URL(image);
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 	
 	/**
@@ -44,8 +49,13 @@ public class RacoonImage {
 	 * @throws MalformedURLException
 	 * @throws IOException
 	 */
-	public Image asImage() throws MalformedURLException, IOException {
-		return ImageIO.read(asURL());
+	public Image asImage() {
+		try {
+			return ImageIO.read(asURL());
+		} catch (IOException e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 	
 	/**
@@ -53,7 +63,12 @@ public class RacoonImage {
 	 * @return URL
 	 * @throws URISyntaxException
 	 */
-	public URI asURI() throws URISyntaxException {
-		return new URI(image);
+	public URI asURI() {
+		try {
+			return new URI(image);
+		} catch (URISyntaxException e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 }

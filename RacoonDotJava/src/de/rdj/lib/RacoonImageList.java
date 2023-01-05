@@ -36,14 +36,19 @@ public class RacoonImageList {
 	 * @return URL List
 	 * @throws MalformedURLException
 	 */
-	public List<URL> asURLList() throws MalformedURLException {
-		List<URL> result = new ArrayList<URL>();
-		
-		for(String s : images) {
-			result.add(new URL(s));
+	public List<URL> asURLList() {
+		try {
+			List<URL> result = new ArrayList<URL>();
+			
+			for(String s : images) {
+				result.add(new URL(s));
+			}
+			
+			return result;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
 		}
-		
-		return result;
 	}
 	
 	/**
@@ -52,14 +57,19 @@ public class RacoonImageList {
 	 * @throws MalformedURLException
 	 * @throws IOException
 	 */
-	public List<Image> asImageList() throws MalformedURLException, IOException {
-		List<Image> result = new ArrayList<Image>();
-		
-		for(String s : images) {
-			result.add(ImageIO.read(new URL(s)));
+	public List<Image> asImageList() {
+		try {
+			List<Image> result = new ArrayList<Image>();
+			
+			for(String s : images) {
+				result.add(ImageIO.read(new URL(s)));
+			}
+			
+			return result;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
 		}
-		
-		return result;
 	}
 	
 	/**
@@ -67,13 +77,18 @@ public class RacoonImageList {
 	 * @return URI List
 	 * @throws URISyntaxException
 	 */
-	public List<URI> asURIList() throws URISyntaxException {
-		List<URI> result = new ArrayList<URI>();
-		
-		for(String s : images) {
-			result.add(new URI(s));
+	public List<URI> asURIList() {
+		try {
+			List<URI> result = new ArrayList<URI>();
+			
+			for(String s : images) {
+				result.add(new URI(s));
+			}
+			
+			return result;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
 		}
-		
-		return result;
 	}
 }
