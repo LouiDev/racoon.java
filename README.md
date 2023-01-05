@@ -1,6 +1,6 @@
 # racoon.java
 
-<a href="https://github.com/LouiDev/racoon.java/packages/1762981">![Latest Version](https://img.shields.io/badge/Latest%20Release-0.1.--RELEASE-yellow)</a>
+<a href="https://github.com/LouiDev/racoon.java/packages/1762981">![Latest Version](https://img.shields.io/badge/Latest%20Release-0.1.0--RELEASE-yellow)</a>
 <a href="https://www.guilded.gg/i/kamW6l4k">![Guilded](https://img.shields.io/badge/Guilded%20Server-Join-yellow)</a>
 ![Guilded](https://img.shields.io/badge/Java-17-yellow)
 
@@ -20,7 +20,7 @@ Add this dependency to your pom.xml:
 <dependency>
   <groupId>org.louidev</groupId>
   <artifactId>racoon.java</artifactId>
-  <version>0.0.5-SNAPSHOT</version>
+  <version>0.1.0-RELEASE</version>
 </dependency>
 ```
 
